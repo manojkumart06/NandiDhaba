@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --ink-950: #0B0B0B;
+  --ink-900: #111111;
+  --bone-50: #F5F5F5;
+  --bone-400: #A1A1A1;
+  --ember: #FF8A1F;
+  --gold: #D4AF37;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  background: var(--ink-950);
+  color: var(--bone-50);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0B;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#FF8A1F, #C7480A);
+  border-radius: 8px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 138, 31, 0.35);
+  color: #FFF5E6;
+}
+
+/* Cinematic grain overlay */
+.cinematic-grain::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  animation: grain 8s steps(8) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
+}
+
+/* Vignette overlay */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.35) 65%,
+    rgba(11,11,11,0.85) 100%);
+}
+
+/* Heat distortion (subtle) */
+@keyframes heat-shimmer {
+  0%, 100% { transform: translateY(0) skewX(0); filter: blur(0); }
+  50% { transform: translateY(-1px) skewX(0.4deg); filter: blur(0.4px); }
+}
+.heat-shimmer {
+  animation: heat-shimmer 3.5s ease-in-out infinite;
+}
+
+/* Warm ember/gold accent text.
+ *
+ * Gradient via background-clip: text was clipping italic tails and Kannada
+ * diacritics — the painted background ends at the inline element's box, so
+ * anything outside (italic 'g'/'k' tails, periods, vowel marks) falls into
+ * the transparent fill and disappears.
+ *
+ * Reliable solution: solid warm color + filter drop-shadow for the cinematic
+ * glow. No clipping, no inline-block layout side effects, descenders fully
+ * render in every script.
+ */
+.text-ember-glow {
+  color: #FF9A3D;
+  filter: drop-shadow(0 0 10px rgba(255, 138, 31, 0.18));
+}
+
+.text-gold-glow {
+  color: #E8C97A;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.15));
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(17, 17, 17, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(245, 245, 245, 0.06);
+}
+
+.glass-subtle {
+  background: rgba(11, 11, 11, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 245, 245, 0.05);
+}
+
+/* Premium underline hover */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FF8A1F, transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Smooth image loading shimmer */
+.img-shimmer {
+  background: linear-gradient(90deg, #111 0%, #1c1c1c 50%, #111 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Letter mask reveal */
+.mask-reveal {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.mask-reveal > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Ember gradient button glow */
+.btn-ember {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #FF8A1F, #C7480A);
+  box-shadow: 0 0 0 1px rgba(255,138,31,0.3),
+              0 12px 40px -8px rgba(255,138,31,0.55),
+              inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-ember::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, #FFA94D, #F26B0F);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.btn-ember:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(255,138,31,0.5),
+              0 18px 60px -8px rgba(255,138,31,0.7),
+              inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.btn-ember:hover::before {
+  opacity: 1;
+}
+
+.btn-ghost {
+  background: rgba(245, 245, 245, 0.04);
+  border: 1px solid rgba(245, 245, 245, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-ghost:hover {
+  background: rgba(245, 245, 245, 0.08);
+  border-color: rgba(245, 245, 245, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Soft inner glow ring */
+.ring-ember {
+  box-shadow: inset 0 0 0 1px rgba(255, 138, 31, 0.18),
+              0 0 30px -8px rgba(255, 138, 31, 0.4);
+}
+
+/* Hide scrollbars on horizontal scrollers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Prevent flash of unstyled content */
+html {
+  background: #0B0B0B;
+}
+
+/* Map iframe darken */
+.map-darken iframe {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.6) brightness(0.85);
+}
