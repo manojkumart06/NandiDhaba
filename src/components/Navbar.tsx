@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValueEvent, useScroll, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import { Menu as MenuIcon, X } from 'lucide-react';
+import { Menu as MenuIcon, X, Search } from 'lucide-react';
 
 interface Props {
   onReserveClick: () => void;
@@ -43,6 +43,17 @@ export default function Navbar({ onReserveClick }: Props) {
     setMobileOpen(false);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const openMenuSearch = () => {
+    setMobileOpen(false);
+    document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Focus after the smooth-scroll has settled enough to compute layout.
+    window.setTimeout(() => {
+      const input = document.getElementById('menu-search-input') as HTMLInputElement | null;
+      input?.focus({ preventScroll: true });
+      input?.select();
+    }, 850);
   };
 
   return (
@@ -100,6 +111,16 @@ export default function Navbar({ onReserveClick }: Props) {
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
+            <button
+              onClick={openMenuSearch}
+              aria-label="Search menu"
+              className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-bone-50/10 bg-ink-900/60 text-bone-300 backdrop-blur-md transition-all duration-300 hover:border-ember-400/40 hover:text-ember-200 hover:bg-ember-500/5"
+            >
+              <Search size={14} strokeWidth={2.2} />
+              <span className="pointer-events-none absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-bone-50/10 bg-ink-900/95 px-2 py-1 text-[9.5px] tracking-[0.25em] uppercase text-bone-200 opacity-0 transition-opacity duration-300 backdrop-blur group-hover:opacity-100">
+                Search menu
+              </span>
+            </button>
             <LanguageSwitcher />
             <button
               onClick={onReserveClick}
@@ -108,6 +129,14 @@ export default function Navbar({ onReserveClick }: Props) {
               {t('reserveTable')}
             </button>
           </div>
+
+          <button
+            onClick={openMenuSearch}
+            aria-label="Search menu"
+            className="mr-1 flex h-9 w-9 items-center justify-center rounded-full border border-bone-50/10 bg-ink-900/60 text-bone-300 backdrop-blur-md lg:hidden"
+          >
+            <Search size={14} strokeWidth={2.2} />
+          </button>
 
           <button
             onClick={() => setMobileOpen((s) => !s)}

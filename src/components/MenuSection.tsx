@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { menu, MenuCategory, MenuItem } from '../data/menu';
+import { menu, MenuCategory } from '../data/menu';
 
 const accentMap = {
   ember: 'from-ember-400 to-ember-600',
@@ -121,13 +121,14 @@ export default function MenuSection() {
         >
           <div className="group relative mx-auto max-w-2xl">
             <span
-              className={`pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 transition-colors duration-300 ${
+              className={`pointer-events-none absolute left-5 top-1/2 z-10 -translate-y-1/2 transition-colors duration-300 ${
                 searching ? 'text-ember-300' : 'text-bone-400 group-focus-within:text-ember-300'
               }`}
             >
-              <Search size={16} />
+              <Search size={18} strokeWidth={2} />
             </span>
             <input
+              id="menu-search-input"
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}

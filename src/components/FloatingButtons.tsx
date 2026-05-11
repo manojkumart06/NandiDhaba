@@ -3,8 +3,12 @@ import { useState } from 'react';
 import { Phone, MessageCircle, CalendarCheck } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const PHONE = '+919876543210';
-const WHATSAPP = '919876543210';
+const PHONE = '+919113602040';
+const WHATSAPP = '919141877399';
+const WA_MESSAGE = encodeURIComponent(
+  "Hi Nandi Fishland Dhaba 👋, I'd like to know more."
+);
+const WA_URL = `https://wa.me/${WHATSAPP}?text=${WA_MESSAGE}`;
 
 interface Props {
   onReserveClick: () => void;
@@ -32,7 +36,7 @@ export default function FloatingButtons({ onReserveClick }: Props) {
             className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 md:flex"
           >
             <FloatingIcon
-              href={`https://wa.me/${WHATSAPP}`}
+              href={WA_URL}
               label="WhatsApp"
               external
               ring="from-emerald-400 to-emerald-700"
@@ -69,7 +73,7 @@ export default function FloatingButtons({ onReserveClick }: Props) {
                 <Phone size={17} />
               </a>
               <a
-                href={`https://wa.me/${WHATSAPP}`}
+                href={WA_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-11 w-11 items-center justify-center rounded-full text-bone-50 hover:bg-bone-50/8 transition"

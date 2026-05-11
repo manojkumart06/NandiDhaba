@@ -8,8 +8,11 @@ interface Props {
   onClose: () => void;
 }
 
-const PHONE = '+919876543210';
-const WHATSAPP = '919876543210';
+const PHONE = '+919113602040';
+const WHATSAPP = '919141877399';
+const WA_DEFAULT_URL = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+  "Hi Nandi Fishland Dhaba 👋, I'd like to know more."
+)}`;
 
 export default function ReservationModal({ open, onClose }: Props) {
   const { t } = useLanguage();
@@ -205,7 +208,7 @@ export default function ReservationModal({ open, onClose }: Props) {
                       </a>
                     </div>
                     <a
-                      href={`https://wa.me/${WHATSAPP}`}
+                      href={WA_DEFAULT_URL}
                       target="_blank"
                       rel="noreferrer"
                       className="flex items-center justify-center gap-2 pt-1 text-[11px] tracking-[0.3em] uppercase text-bone-400 hover:text-ember-300 transition"

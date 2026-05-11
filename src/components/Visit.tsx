@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
 
-const PHONE = '+919876543210';
-const WHATSAPP = '919876543210';
+const PHONE = '+919113602040';
+const WHATSAPP = '919141877399';
 
 interface Props {
   onReserveClick: () => void;

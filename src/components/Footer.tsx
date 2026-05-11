@@ -41,10 +41,10 @@ export default function Footer() {
           <div className="md:col-span-3">
             <div className="text-[10px] tracking-[0.3em] uppercase text-bone-400">Reservations</div>
             <a
-              href="tel:+919876543210"
+              href="tel:+919113602040"
               className="mt-3 block font-serif text-lg text-bone-50 hover:text-ember-300 transition-colors"
             >
-              +91 98765 43210
+              +91 91136 02040
             </a>
           </div>
           <div className="md:col-span-2">
@@ -58,7 +58,7 @@ export default function Footer() {
                   label: 'Instagram',
                 },
                 { Icon: Facebook, href: '#', external: false, label: 'Facebook' },
-                { Icon: Phone, href: 'tel:+919876543210', external: false, label: 'Call' },
+                { Icon: Phone, href: 'tel:+919113602040', external: false, label: 'Call' },
               ].map(({ Icon, href, external, label }, i) => (
                 <a
                   key={i}
