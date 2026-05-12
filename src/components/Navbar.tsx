@@ -34,8 +34,8 @@ export default function Navbar({ onReserveClick }: Props) {
     { id: 'seafood', label: t('navSeafood') },
     { id: 'grill', label: t('navSpecials') },
     { id: 'dhaba', label: t('navExperience') },
-    { id: 'gallery', label: t('navGallery') },
     { id: 'menu', label: t('navMenu') },
+    { id: 'gallery', label: t('navGallery') },
     { id: 'visit', label: t('navVisit') },
   ];
 
@@ -92,7 +92,11 @@ export default function Navbar({ onReserveClick }: Props) {
                 <path d="M22 16 L30 11 L27 16 L30 21 Z" fill="url(#navlogo)" />
               </svg>
             </span>
-            <span className="font-serif text-[15px] tracking-[0.04em] text-bone-50">
+            <span
+              className={`font-serif text-[15px] tracking-[0.04em] text-bone-50 ${
+                scrolled ? '' : '[text-shadow:_0_1px_3px_rgba(0,0,0,0.85),_0_2px_12px_rgba(0,0,0,0.6)]'
+              }`}
+            >
               NANDI <span className="text-ember-400">FISHLAND</span> DHABA
             </span>
           </button>
@@ -102,7 +106,11 @@ export default function Navbar({ onReserveClick }: Props) {
               <button
                 key={l.id}
                 onClick={() => scrollTo(l.id)}
-                className="link-underline text-[12.5px] font-medium tracking-[0.18em] uppercase text-bone-400 transition-colors duration-300 hover:text-bone-50"
+                className={`link-underline text-[12.5px] font-medium tracking-[0.18em] uppercase transition-colors duration-300 hover:text-bone-50 ${
+                  scrolled
+                    ? 'text-bone-400'
+                    : 'text-bone-50 [text-shadow:_0_1px_3px_rgba(0,0,0,0.9),_0_2px_10px_rgba(0,0,0,0.6)]'
+                }`}
                 style={{ fontFamily: locale === 'kn' ? "'Inter', sans-serif" : undefined }}
               >
                 {l.label}

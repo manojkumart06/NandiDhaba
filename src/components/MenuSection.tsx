@@ -307,7 +307,7 @@ function highlightMatch(text: string, q: string) {
 }
 
 function CategoryBlock({ cat, highlight = '' }: { cat: MenuCategory; highlight?: string }) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   return (
     <div>
       <div className="mb-8 flex items-end justify-between gap-6 border-b border-bone-50/8 pb-5">
@@ -351,7 +351,10 @@ function CategoryBlock({ cat, highlight = '' }: { cat: MenuCategory; highlight?:
             className="group relative flex items-baseline gap-4 border-b border-bone-50/5 py-4 transition-colors hover:border-ember-400/20"
           >
             <h4 className="font-serif text-xl text-bone-50 transition-colors duration-300 group-hover:text-ember-200 md:text-2xl">
-              {highlightMatch(item.name, highlight)}
+              {highlightMatch(
+                locale === 'kn' && item.nameKn ? item.nameKn : item.name,
+                highlight
+              )}
             </h4>
             <div className="mx-2 flex-1 translate-y-[-3px] border-b border-dashed border-bone-50/10" />
             <span className="font-mono text-[15px] text-bone-200 transition-colors group-hover:text-bone-50">

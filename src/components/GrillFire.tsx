@@ -59,7 +59,7 @@ export default function GrillFire() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[10.5px] font-medium tracking-[0.45em] uppercase text-ember-200"
+            className="text-[10.5px] font-medium tracking-[0.45em] uppercase text-ember-200 [text-shadow:_0_1px_3px_rgba(0,0,0,0.95),_0_0_14px_rgba(0,0,0,0.7)]"
           >
             ◆ {t('grillEyebrow')} ◆
           </motion.span>
@@ -68,7 +68,7 @@ export default function GrillFire() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className={`mt-5 max-w-[14ch] font-serif tracking-tightest text-bone-50 ${
+            className={`mt-5 max-w-[14ch] font-serif tracking-tightest text-bone-50 [text-shadow:_0_2px_4px_rgba(0,0,0,0.95),_0_4px_24px_rgba(0,0,0,0.85)] ${
               kn ? 'leading-[1.45]' : 'leading-[1.05]'
             }`}
             style={{
@@ -83,15 +83,20 @@ export default function GrillFire() {
               </span>
             ))}
           </motion.h2>
-          <motion.p
+
+          {/* Subheadline gets its own glass-dark plate so body text stays legible
+              against the fish + flame imagery */}
+          <motion.div
             initial={{ y: 24, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.3 }}
-            className="mt-7 max-w-lg text-[15px] leading-relaxed text-bone-400"
+            className="mt-8 max-w-xl rounded-2xl border border-bone-50/8 bg-ink-950/65 px-7 py-5 backdrop-blur-md shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7)]"
           >
-            {t('grillSub')}
-          </motion.p>
+            <p className="text-[15px] leading-relaxed text-bone-50/95">
+              {t('grillSub')}
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Bottom credit lines */}

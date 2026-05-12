@@ -82,8 +82,11 @@ export interface TranslationKeys {
   catKhane: string;
   catChickenDry: string;
   catChickenGravy: string;
+  catNatiChicken: string;
   catTandoori: string;
-  catEgg: string;
+  catKauju: string;
+  catEggDry: string;
+  catEggMasala: string;
   catMuttonDry: string;
   catMuttonGravy: string;
   catVegDry: string;
@@ -92,6 +95,9 @@ export interface TranslationKeys {
   catNonVegRice: string;
   catRoti: string;
   catJuice: string;
+  catSilverFish: string;
+  catMathiFish: string;
+  catFishBiriyani: string;
 }
 
 export const translations: Record<Locale, TranslationKeys> = {
@@ -165,16 +171,22 @@ export const translations: Record<Locale, TranslationKeys> = {
     catCrab: 'Crab',
     catBoneless: 'Boneless Fish',
     catFishCurry: 'Fish Curry',
+    catFishBiriyani: 'Fish Biriyani',
     catBangda: 'Bangda Fish',
-    catAnjal: 'Anjal Fish',
+    catAnjal: 'Angal Fish',
     catPamphlet: 'Pamphlet Fish',
     catKhane: 'Khane Fish',
+    catSilverFish: 'Silver Fish',
+    catMathiFish: 'Mathi Fish',
     catChickenDry: 'Chicken Dry',
     catChickenGravy: 'Chicken Gravy',
+    catNatiChicken: 'Nati Chicken',
     catTandoori: 'Tandoori',
-    catEgg: 'Egg Specials',
-    catMuttonDry: 'Mutton Dry',
-    catMuttonGravy: 'Mutton Gravy',
+    catKauju: 'Kauju Specials',
+    catEggDry: 'Egg Dry',
+    catEggMasala: 'Egg Masala',
+    catMuttonDry: 'Mutton & Boti Dry',
+    catMuttonGravy: 'Mutton & Boti Gravy',
     catVegDry: 'Veg Dry',
     catVegGravy: 'Veg Gravy',
     catVegRice: 'Veg Rice',
@@ -251,16 +263,22 @@ export const translations: Record<Locale, TranslationKeys> = {
     catCrab: 'ಏಡಿ',
     catBoneless: 'ಮೂಳೆ ಇಲ್ಲದ ಮೀನು',
     catFishCurry: 'ಮೀನು ಸಾರು',
-    catBangda: 'ಬಂಗಡಾ ಮೀನು',
-    catAnjal: 'ಅಂಜಲ್ ಮೀನು',
-    catPamphlet: 'ಪಾಂಫ್ಲೆಟ್ ಮೀನು',
+    catFishBiriyani: 'ಮೀನು ಬಿರಿಯಾನಿ',
+    catBangda: 'ಬಾಂಗಡ ಮೀನು',
+    catAnjal: 'ಎಂಜಲ್ ಮೀನು',
+    catPamphlet: 'ಪಾಂಪ್ಲೆಟ್ ಮೀನು',
     catKhane: 'ಖಾನೆ ಮೀನು',
+    catSilverFish: 'ಸಿಲ್ವರ್ ಮೀನು',
+    catMathiFish: 'ಮತ್ತಿ ಮೀನು',
     catChickenDry: 'ಚಿಕನ್ ಡ್ರೈ',
     catChickenGravy: 'ಚಿಕನ್ ಗ್ರೇವಿ',
+    catNatiChicken: 'ನಾಟಿ ಚಿಕನ್',
     catTandoori: 'ತಂದೂರಿ',
-    catEgg: 'ಮೊಟ್ಟೆ ವಿಶೇಷಗಳು',
-    catMuttonDry: 'ಮಟನ್ ಡ್ರೈ',
-    catMuttonGravy: 'ಮಟನ್ ಗ್ರೇವಿ',
+    catKauju: 'ಕಾಜು ವಿಶೇಷಗಳು',
+    catEggDry: 'ಎಗ್ ಡ್ರೈ',
+    catEggMasala: 'ಎಗ್ ಮಸಾಲ',
+    catMuttonDry: 'ಮಟನ್ ಮತ್ತು ಬೋಟಿ ಡ್ರೈ',
+    catMuttonGravy: 'ಮಟನ್ ಮತ್ತು ಬೋಟಿ ಗ್ರೇವಿ',
     catVegDry: 'ಸಸ್ಯಾಹಾರಿ ಡ್ರೈ',
     catVegGravy: 'ಸಸ್ಯಾಹಾರಿ ಗ್ರೇವಿ',
     catVegRice: 'ಸಸ್ಯಾಹಾರಿ ಅನ್ನ',

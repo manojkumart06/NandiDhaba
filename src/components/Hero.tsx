@@ -71,12 +71,12 @@ export default function Hero({ onReserveClick }: Props) {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 block text-[10.5px] font-medium tracking-[0.45em] uppercase text-ember-200 md:mb-8"
+          className="mb-6 block text-[10.5px] font-medium tracking-[0.45em] uppercase text-ember-200 [text-shadow:_0_1px_3px_rgba(0,0,0,0.9),_0_2px_14px_rgba(0,0,0,0.65)] md:mb-8"
         >
           ◆ &nbsp; {t('heroEyebrow')} &nbsp; ◆
         </motion.span>
         <h1
-          className={`font-serif tracking-tightest text-bone-50 will-change-transform ${
+          className={`font-serif tracking-tightest text-bone-50 will-change-transform [text-shadow:_0_2px_6px_rgba(0,0,0,0.85),_0_6px_30px_rgba(0,0,0,0.7)] ${
             locale === 'kn' ? 'leading-[1.18]' : 'leading-[0.92]'
           }`}
           style={{
@@ -126,7 +126,7 @@ export default function Hero({ onReserveClick }: Props) {
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.4, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-7 max-w-xl text-balance text-[15px] leading-relaxed text-bone-400 md:text-[16px]"
+          className="mt-7 max-w-xl text-balance text-[15px] leading-relaxed text-bone-50/90 [text-shadow:_0_1px_3px_rgba(0,0,0,0.95),_0_2px_14px_rgba(0,0,0,0.75)] md:text-[16px]"
           key={`sub-${locale}`}
         >
           {t('heroSubheadline')}
