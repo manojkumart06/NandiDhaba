@@ -84,7 +84,8 @@ export interface TranslationKeys {
   catChickenGravy: string;
   catTandoori: string;
   catEgg: string;
-  catBeefMutton: string;
+  catMuttonDry: string;
+  catMuttonGravy: string;
   catVegDry: string;
   catVegGravy: string;
   catVegRice: string;
@@ -172,7 +173,8 @@ export const translations: Record<Locale, TranslationKeys> = {
     catChickenGravy: 'Chicken Gravy',
     catTandoori: 'Tandoori',
     catEgg: 'Egg Specials',
-    catBeefMutton: 'Beef & Mutton',
+    catMuttonDry: 'Mutton Dry',
+    catMuttonGravy: 'Mutton Gravy',
     catVegDry: 'Veg Dry',
     catVegGravy: 'Veg Gravy',
     catVegRice: 'Veg Rice',
@@ -257,7 +259,8 @@ export const translations: Record<Locale, TranslationKeys> = {
     catChickenGravy: 'ಚಿಕನ್ ಗ್ರೇವಿ',
     catTandoori: 'ತಂದೂರಿ',
     catEgg: 'ಮೊಟ್ಟೆ ವಿಶೇಷಗಳು',
-    catBeefMutton: 'ಮಾಂಸಗಳು',
+    catMuttonDry: 'ಮಟನ್ ಡ್ರೈ',
+    catMuttonGravy: 'ಮಟನ್ ಗ್ರೇವಿ',
     catVegDry: 'ಸಸ್ಯಾಹಾರಿ ಡ್ರೈ',
     catVegGravy: 'ಸಸ್ಯಾಹಾರಿ ಗ್ರೇವಿ',
     catVegRice: 'ಸಸ್ಯಾಹಾರಿ ಅನ್ನ',

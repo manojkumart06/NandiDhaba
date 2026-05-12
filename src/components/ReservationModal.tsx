@@ -161,17 +161,28 @@ export default function ReservationModal({ open, onClose }: Props) {
                         />
                       </Field>
                       <Field label={t('guests')}>
-                        <input
-                          required
-                          type="number"
-                          min={1}
-                          max={30}
-                          value={form.guests}
-                          onChange={(e) =>
-                            setForm({ ...form, guests: parseInt(e.target.value) || 1 })
-                          }
-                          className="input"
-                        />
+                        <div className="relative">
+                          <select
+                            required
+                            value={form.guests}
+                            onChange={(e) =>
+                              setForm({ ...form, guests: parseInt(e.target.value) || 1 })
+                            }
+                            className="input input-select appearance-none pr-10"
+                          >
+                            {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
+                              <option key={n} value={n}>
+                                {n} {n === 1 ? 'guest' : 'guests'}
+                              </option>
+                            ))}
+                            <option value={25}>20+ guests</option>
+                          </select>
+                          <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-bone-400">
+                            <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
+                              <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        </div>
                       </Field>
                     </div>
                     <Field label={t('dateTime')}>
@@ -278,6 +289,14 @@ export default function ReservationModal({ open, onClose }: Props) {
                 border-color: rgba(255, 138, 31, 0.5);
                 background: rgba(11,11,11,0.85);
                 box-shadow: 0 0 0 3px rgba(255, 138, 31, 0.12);
+              }
+              .input-select {
+                cursor: pointer;
+              }
+              .input-select option {
+                background: #111111;
+                color: #F5F5F5;
+                padding: 10px;
               }
             `}</style>
           </motion.div>
