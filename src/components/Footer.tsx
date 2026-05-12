@@ -1,6 +1,21 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { Instagram, Facebook, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
+
+// Brand icons inlined — lucide-react deprecated the brand-icon set.
+const InstagramIcon = ({ size = 15 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const FacebookIcon = ({ size = 15 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -15,8 +30,8 @@ export default function Footer() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif tracking-tightest text-bone-50 leading-[1.05]"
-          style={{ fontSize: 'clamp(2.4rem, 7vw, 7rem)' }}
+          className="font-serif tracking-tight text-bone-50 leading-[1.05] text-balance break-words"
+          style={{ fontSize: 'clamp(1.85rem, 5.5vw, 5.5rem)' }}
         >
           Nandi <span className="italic text-ember-glow">Fishland</span> Dhaba.
         </motion.h3>
@@ -52,12 +67,12 @@ export default function Footer() {
             <div className="mt-3 flex gap-3">
               {[
                 {
-                  Icon: Instagram,
+                  Icon: InstagramIcon,
                   href: 'https://www.instagram.com/nandi_fishland.dhaba/',
                   external: true,
                   label: 'Instagram',
                 },
-                { Icon: Facebook, href: '#', external: false, label: 'Facebook' },
+                { Icon: FacebookIcon, href: '#', external: false, label: 'Facebook' },
                 { Icon: Phone, href: 'tel:+919113602040', external: false, label: 'Call' },
               ].map(({ Icon, href, external, label }, i) => (
                 <a
@@ -81,9 +96,12 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* giant ghost wordmark */}
+      {/* giant ghost wordmark — sized so it always fits within viewport */}
       <div className="pointer-events-none mt-10 select-none overflow-hidden">
-        <div className="whitespace-nowrap text-center font-serif italic text-bone-50/[0.03]" style={{ fontSize: 'clamp(8rem, 22vw, 22rem)', lineHeight: 0.85 }}>
+        <div
+          className="whitespace-nowrap text-center font-serif italic text-bone-50/[0.04]"
+          style={{ fontSize: 'clamp(3.5rem, 13vw, 14rem)', lineHeight: 0.9 }}
+        >
           NANDI · FISHLAND
         </div>
       </div>
