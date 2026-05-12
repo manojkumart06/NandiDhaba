@@ -1,0 +1,12 @@
+{
+  "name": "Nandi Fishland Dhaba",
+  "short_name": "Nandi Dhaba",
+  "description": "Where Fire Meets Fresh Catch — premium seafood and authentic dhaba flavors near Devanahalli, Karnataka.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0B0B",
+  "theme_color": "#0B0B0B",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

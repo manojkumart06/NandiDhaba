@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Allow popular crawlers explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://nandi-dhaba.vercel.app/sitemap.xml
